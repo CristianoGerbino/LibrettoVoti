@@ -46,7 +46,7 @@ public class Voto {
 	}
 	
 	public String toString() {
-		return String.format("Voto [voto=%s, corso=%s, data=%s]", punti, corso, data);
+		return String.format("Voto [punti=%s, corso=%s, data=%s]", punti, corso, data);
 	}
 
 }

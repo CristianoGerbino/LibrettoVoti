@@ -23,6 +23,12 @@ public class Libretto {
 	//Per il punto 2 è preferibile utilizzare una funzione che ritorni una lista di voti,
 	//in modo tale da poterla utilizzare anche con un interfaccia grafica
 	
+	/**
+	 * Seleziona il sottoinsieme di voti che hanno il punteggio specificato
+	 * 
+	 * @param punti punteggio da ricerca
+	 * @return lista di Voti 
+	 */
 	public List<Voto> cercaVoti (int voto) {
 		
 		List <Voto> result = new ArrayList <Voto>();
@@ -35,6 +41,13 @@ public class Libretto {
 		return result;
 	}
 	
-	
+	public Voto cercaEsame( String nomeEsame) {
+		for (Voto v : this.voti) {
+			if (v.getCorso().equals(nomeEsame)) {
+				return v;
+			}
+		}
+		return null;
+	}
 	
 }
