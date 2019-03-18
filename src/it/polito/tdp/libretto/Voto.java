@@ -3,6 +3,7 @@ package it.polito.tdp.libretto;
 import java.time.*;
 
 public class Voto {
+
 	private int voto;
 	private String corso;
 	private LocalDate data;
@@ -42,6 +43,10 @@ public class Voto {
 
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+	
+	public String toString() {
+		return String.format("Voto [voto=%s, corso=%s, data=%s]", voto, corso, data);
 	}
 
 }
