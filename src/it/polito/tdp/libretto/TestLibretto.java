@@ -29,6 +29,9 @@ public class TestLibretto {
 		
 		System.out.println("Il voto "+giusto.toString()+"e' "+libr.esisteGiaVoto(giusto));
 		System.out.println("Il voto "+sbagliato.toString()+"e' "+libr.esisteGiaVoto(sbagliato));
+		
+		System.out.println("Il voto "+giusto.toString()+"e' in conflitto "+libr.votoInConflitto(giusto));
+		System.out.println("Il voto "+sbagliato.toString()+"e' in conflitto "+libr.votoInConflitto(sbagliato));
 	}
 
 }
