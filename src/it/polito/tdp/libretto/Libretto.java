@@ -1,4 +1,4 @@
-package it.polito.tdp.libretto;
+  package it.polito.tdp.libretto;
 
 import java.util.*;
 
@@ -42,12 +42,26 @@ public class Libretto {
 	}
 	
 	public Voto cercaEsame( String nomeEsame) {
-		for (Voto v : this.voti) {
+		Voto voto = new Voto (0, nomeEsame, null);
+		int pos = this.voti.indexOf(voto);
+		
+		//poichè indexOf utilizza equals, il metodo equals implementato su un Voto,
+		//controlla, essendo un esame univoco per nome del corso, solo se esiste già un oggetto 
+		//con quel nome del corso, quindi abbiamo costruito un Voto fittizio, che ha come unica informazione utile
+		//il nome del corso
+		
+		if (pos == -1)
+			return null;
+		else
+			return this.voti.get(pos);
+				
+		
+		/*for (Voto v : this.voti) {
 			if (v.getCorso().equals(nomeEsame)) {
 				return v;
 			}
 		}
-		return null;
+		return null;*/
 	}
 	
 	/**
@@ -57,14 +71,10 @@ public class Libretto {
 	 * 		   {@code false} se non ha trovato il corso, oppure l'ha trovato con voto diverso 
 	 */
 	public boolean esisteGiaVoto (Voto v) {
-		Voto trovato = this.cercaEsame(v.getCorso());
-		if (trovato == null)
-			return false;
-		if (trovato.getPunti() == v.getPunti()) {
+		int pos = voti.indexOf(v);
+		if (pos == -1)
 			return true;
-		}
-		else {
-			return false;
-		}
+		else
+			return (v.getPunti() == voti.get(pos).getPunti());
 	}
 }
